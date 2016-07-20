@@ -56,11 +56,11 @@ class AddHourToDatetimesCommand(sublime_plugin.TextCommand):
             result.append(line)
         
         line_ending = {
-            "Windows" : "\r\n",
+            "Windows" : "\n",
             "Unix"    : "\n",
             "CR"      : "\r"
         }[self.view.line_endings()]
-        doc = line_ending.join(result)
+        doc = line_ending.join(result) + line_ending
         # print(doc)
         self._update_file(doc)
 
